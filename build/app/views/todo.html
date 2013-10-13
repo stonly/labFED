@@ -1,0 +1,17 @@
+
+    <div class="row">
+    	<div class="col-lg-4">
+    		<br>
+    		<h1>Todo App</h1>
+    		<br>
+
+    		<form class="form-inline" ng-submit="appendTask()">
+    			<input type="text" ng-model="newTask">
+    			<button type="submit">Add Task</button>
+    		</form>
+    		<ul>
+    			<li ng-repeat="task in tasks">{{task}}</li>
+    		</ul>
+
+    	</div>
+    <div>
