@@ -7,7 +7,7 @@ angular.module('tadoApp', [
 ])
   .config(function ($routeProvider) {
     $routeProvider
-      .when('/', {
+      .when('/main', {
         templateUrl: 'views/main.html',
         controller: 'MainCtrl'
       })
@@ -16,13 +16,22 @@ angular.module('tadoApp', [
         templateUrl: 'views/todo.html',
         controller: 'TodoCtrl'
       })
+      .when('/sign-in', {
+        title: 'Sign In',
+        templateUrl: 'views/sign-in.html',
+        controller: 'SignInCtrl'
+      })
       .otherwise({
-        redirectTo: '/'
+        redirectTo: '/sign-in'
       });
   });
 
-angular.module('tadoApp').run(['$location', '$rootScope', '$http', '$route', function($location, $rootScope, $http, $route) {
+angular.module('tadoApp').run(['$location', '$rootScope', '$http', '$route','User', 'Creator', function($location, $rootScope, $http, $route, User, Creator) {
     $rootScope.$on('$routeChangeSuccess', function(event, routeData){
       $rootScope.title = $route.current.title;
+
+      $rootScope.user = User;
+      $rootScope.creator = Creator;
+      console.log(Creator)
     });
 }]);

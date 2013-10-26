@@ -62,12 +62,11 @@
 
     <!-- Add your site or application content here -->
 
-    <ng-include src="'/views/header.html'"></ng-include>
+    <ng-include src="'/views/header.html'" ng-hide="title=='Sign In'"></ng-include>
 
-    <div class="content" ng-view=""></div>
+    <div ng-class="{content: title != 'Sign In'}" ng-view=""></div>
     
     <ng-include src="'/views/footer.html'"></ng-include>
-
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
      <script>
@@ -117,6 +116,9 @@
         <script src="scripts/app.js"></script>
         <script src="scripts/controllers/main.js"></script>
         <script src="scripts/controllers/todo.js"></script>
+        <script src="scripts/services/user.js"></script>
+        <script src="scripts/services/Creator.js"></script>
+        <script src="scripts/controllers/sign-in.js"></script>
         <!-- endbuild -->
         <script type="text/javascript">
             $("[rel=tooltip]").tooltip({animation:false});
